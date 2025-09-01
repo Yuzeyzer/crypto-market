@@ -82,7 +82,7 @@ const currencyStore = useCurrencyStore()
 const { marketData, loading, error, filteredAndSortedData } = storeToRefs(marketStore)
 
 const autoRefresh = ref(true) // Включаем автоматическое обновление по умолчанию
-let refreshInterval: number | null = null
+let refreshInterval: ReturnType<typeof setTimeout> | null = null
 const selectedCoin = ref<MarketData | null>(null)
 
 const refreshData = async () => {
